@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://epqkamnl6u4x"]
+
+[ext_resource type="Script" uid="uid://dxbur26lho776" path="res://scenes/abnormalities/abnormality_002/abnormality_002.gd" id="1_kuvle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exgmf"]
+albedo_color = Color(0.55007, 0.515747, 0.423746, 1)
+
+[node name="abnormality_002" type="Node3D"]
+script = ExtResource("1_kuvle")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material = SubResource("StandardMaterial3D_exgmf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

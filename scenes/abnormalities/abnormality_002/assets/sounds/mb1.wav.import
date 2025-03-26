@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://chgljwuea4eig"
-path="res://.godot/imported/mb1.wav-db6c44a388a22bd35690f6110d477199.sample"
+path="res://.godot/imported/mb1.wav-54399dd17be3573b9a195f12db108e5d.sample"
 
 [deps]
 
-source_file="res://scenes/abnormalities/abnormality_001/assets/sounds/mb1.wav"
-dest_files=["res://.godot/imported/mb1.wav-db6c44a388a22bd35690f6110d477199.sample"]
+source_file="res://scenes/abnormalities/abnormality_002/assets/sounds/mb1.wav"
+dest_files=["res://.godot/imported/mb1.wav-54399dd17be3573b9a195f12db108e5d.sample"]
 
 [params]
 
