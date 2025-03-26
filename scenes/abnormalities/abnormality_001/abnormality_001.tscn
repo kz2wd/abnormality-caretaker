@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbgylck0418rp"]
+
+[ext_resource type="Script" uid="uid://dfppln7dyv1lx" path="res://scenes/abnormalities/abnormality_001/abnormality_001.gd" id="1_dp0m4"]
+[ext_resource type="PackedScene" uid="uid://c73nv3478wl5h" path="res://scenes/abnormalities/abnormality_001/assets/trunk.glb" id="2_6hx8y"]
+[ext_resource type="PackedScene" uid="uid://b4yl4d7kip5jk" path="res://scenes/abnormalities/abnormality_001/assets/tentacle.glb" id="3_evmrc"]
+[ext_resource type="PackedScene" uid="uid://bnce23er83w6q" path="res://scenes/abnormalities/abnormality_001/assets/heart.glb" id="4_dp0m4"]
+
+[node name="abnormality_001" type="Node3D"]
+script = ExtResource("1_dp0m4")
+
+[node name="trunk" parent="." instance=ExtResource("2_6hx8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.885478, 0)
+
+[node name="tentacle2" parent="trunk" instance=ExtResource("3_evmrc")]
+transform = Transform3D(-0.15233, 1.33172e-08, 0.98833, -8.74228e-08, -1, 0, 0.98833, -8.64025e-08, 0.15233, 0.225798, 6.68873, -1.9654)
+
+[node name="tentacle3" parent="trunk" instance=ExtResource("3_evmrc")]
+transform = Transform3D(-0.761346, 6.6559e-08, -0.648346, -8.74228e-08, -1, 0, -0.648346, 5.66802e-08, 0.761346, 1.90517, 6.3752, 1.08418)
+
+[node name="tentacle4" parent="trunk" instance=ExtResource("3_evmrc")]
+transform = Transform3D(0.750792, -6.56363e-08, -0.660539, -8.74228e-08, -1, 7.31162e-15, -0.660539, 5.77461e-08, -0.750792, -1.72171, 6.75073, 1.87241)
+
+[node name="heart2" parent="." instance=ExtResource("4_dp0m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -3.048
+unit_size = 5.24
+max_db = -0.428
+max_distance = 20.0
+
+[editable path="trunk/tentacle2"]
+[editable path="trunk/tentacle3"]
+[editable path="trunk/tentacle4"]
+[editable path="heart2"]
