@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbgylck0418rp"]
+[gd_scene load_steps=7 format=3 uid="uid://bbgylck0418rp"]
 
 [ext_resource type="Script" uid="uid://dfppln7dyv1lx" path="res://scenes/abnormalities/abnormality_001/abnormality_001.gd" id="1_dp0m4"]
 [ext_resource type="PackedScene" uid="uid://c73nv3478wl5h" path="res://scenes/abnormalities/abnormality_001/assets/trunk.glb" id="2_6hx8y"]
 [ext_resource type="PackedScene" uid="uid://b4yl4d7kip5jk" path="res://scenes/abnormalities/abnormality_001/assets/tentacle.glb" id="3_evmrc"]
 [ext_resource type="PackedScene" uid="uid://bnce23er83w6q" path="res://scenes/abnormalities/abnormality_001/assets/heart.glb" id="4_dp0m4"]
+[ext_resource type="Texture2D" uid="uid://cdn2f4bxxue00" path="res://scenes/abnormalities/abnormality_001/assets/trunk_black_t1.png" id="5_6hx8y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evmrc"]
+albedo_texture = ExtResource("5_6hx8y")
 
 [node name="abnormality_001" type="Node3D"]
 script = ExtResource("1_dp0m4")
@@ -23,11 +27,28 @@ transform = Transform3D(0.750792, -6.56363e-08, -0.660539, -8.74228e-08, -1, 7.3
 [node name="heart2" parent="." instance=ExtResource("4_dp0m4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85, 0)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="breather" type="AudioStreamPlayer3D" parent="."]
 volume_db = -3.048
 unit_size = 5.24
 max_db = -0.428
 max_distance = 20.0
+
+[node name="heart_beat" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221078, 1.30637, 0)
+attenuation_model = 1
+volume_db = -16.762
+unit_size = 8.1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0650845, 6.80474, 2.2346)
+polygon = PackedVector2Array(-1.96339, -1.06548, -4, 2, 4, 2, 1.98512, -1.62955)
+depth = 4.85
+material = SubResource("StandardMaterial3D_evmrc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01372, 2.57005, 0)
+light_color = Color(0.650737, 0.222073, 0.289549, 1)
+omni_range = 2.264
 
 [editable path="trunk/tentacle2"]
 [editable path="trunk/tentacle3"]

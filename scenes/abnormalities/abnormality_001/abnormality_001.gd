@@ -8,10 +8,12 @@ extends Node3D
 	$trunk/tentacle4/AnimationPlayer,
 ]
 
-@onready var breath_in: Resource = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/br1_in.wav")
-@onready var breath_out: Resource = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/br1_out.wav")
+const breath_in: Resource = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/br1_in.wav")
+const breath_out: Resource = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/br1_out.wav")
+const HB_1 = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/hb1.wav")
 
-@onready var breath_sound_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var breath_sound_player: AudioStreamPlayer3D = $breather
+@onready var heart_beat: AudioStreamPlayer3D = $heart_beat
 
 enum BREATH {
 	IN,
@@ -47,13 +49,17 @@ func handle_breath() -> void:
 var animations = [idle, panic, die]
 var current_animation_index = 0
 
+func handle_heart() -> void:
+	if !heart_beat.is_playing():
+		heart_beat.stream = HB_1
+		# make is last 1.1 sec and not 1 sec to avoid it finishing sooner than
+		# the animation.
+		heart_beat.play(0.9)  # File is 2 secs long, could find how to cut it in half simply so ...
+		heart_animator.play("heart_idle")
 
 func _process(delta: float) -> void:
 	handle_breath()
-	if Input.is_action_just_pressed("test_circle_animations"):
-		animations[current_animation_index].call()
-		current_animation_index += 1
-		current_animation_index %= len(animations)
+	handle_heart()
 	
 func idle() -> void:
 	heart_animator.play("heart_idle")
