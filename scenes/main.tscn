@@ -52,4 +52,4 @@ shape = SubResource("ConcavePolygonShape3D_tefeu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91173, 0, -0.175692)
 
 [node name="abnormality_002" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85601, 2.38419e-07, -10.6838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88009, 0.93536, -14.3514)
