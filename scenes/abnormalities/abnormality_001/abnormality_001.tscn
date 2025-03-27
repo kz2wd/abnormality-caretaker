@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbgylck0418rp"]
+[gd_scene load_steps=8 format=3 uid="uid://bbgylck0418rp"]
 
 [ext_resource type="Script" uid="uid://dfppln7dyv1lx" path="res://scenes/abnormalities/abnormality_001/abnormality_001.gd" id="1_dp0m4"]
 [ext_resource type="PackedScene" uid="uid://c73nv3478wl5h" path="res://scenes/abnormalities/abnormality_001/assets/trunk.glb" id="2_6hx8y"]
 [ext_resource type="PackedScene" uid="uid://b4yl4d7kip5jk" path="res://scenes/abnormalities/abnormality_001/assets/tentacle.glb" id="3_evmrc"]
 [ext_resource type="Texture2D" uid="uid://cdn2f4bxxue00" path="res://scenes/abnormalities/abnormality_001/assets/trunk_black_t1.png" id="5_6hx8y"]
 [ext_resource type="PackedScene" uid="uid://coh6aflphdrdd" path="res://scenes/abnormalities/abnormality_001/assets/heart.glb" id="5_evmrc"]
+[ext_resource type="PackedScene" uid="uid://wsccwgqtyhxu" path="res://scenes/abnormalities/abnormality_001/assets/mouth.glb" id="6_evmrc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evmrc"]
 albedo_texture = ExtResource("5_6hx8y")
@@ -13,7 +14,7 @@ albedo_texture = ExtResource("5_6hx8y")
 script = ExtResource("1_dp0m4")
 
 [node name="trunk" parent="." instance=ExtResource("2_6hx8y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.885478, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340603, 0)
 
 [node name="tentacle2" parent="trunk" instance=ExtResource("3_evmrc")]
 transform = Transform3D(-0.15233, 1.33172e-08, 0.98833, -8.74228e-08, -1, 0, 0.98833, -8.64025e-08, 0.15233, 0.225798, 6.68873, -1.9654)
@@ -25,30 +26,45 @@ transform = Transform3D(-0.761346, 6.6559e-08, -0.648346, -8.74228e-08, -1, 0, -
 transform = Transform3D(0.750792, -6.56363e-08, -0.660539, -8.74228e-08, -1, 7.31162e-15, -0.660539, 5.77461e-08, -0.750792, -1.72171, 6.75073, 1.87241)
 
 [node name="breather" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.38431, 0)
 volume_db = -3.048
 unit_size = 5.24
 max_db = -0.428
 max_distance = 20.0
 
 [node name="heart_beat" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221078, 1.30637, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221078, 1.85125, 0)
 attenuation_model = 1
 volume_db = -16.762
 unit_size = 8.1
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0650845, 6.80474, 2.2346)
+[node name="body" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0650845, 7.34962, 2.2346)
 polygon = PackedVector2Array(-1.96339, -1.06548, -4, 2, 4, 2, 1.98512, -1.62955)
 depth = 4.85
 material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01372, 2.57005, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01372, 3.11493, 0)
 light_color = Color(0.650737, 0.222073, 0.289549, 1)
 omni_range = 2.264
 
 [node name="heart2" parent="." instance=ExtResource("5_evmrc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.885, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340125, 0)
+
+[node name="mouth" parent="." instance=ExtResource("6_evmrc")]
+transform = Transform3D(-0.566011, -0.824393, 0.00271674, -0.824383, 0.566018, 0.00395687, -0.00479974, 0, -0.999988, -0.639927, 0.364267, 0.0425713)
+
+[node name="mouth_sound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983946, 0.644246, 0)
+unit_size = 10.04
+max_distance = 20.4
+
+[node name="mouth_breath_1" parent="." instance=ExtResource("6_evmrc")]
+transform = Transform3D(-1.14611, -1.35406, -0.665067, 1.48451, -1.1609, -0.194681, -0.268383, -0.638894, 1.76328, -0.272047, 5.57095, -0.128361)
+
+[node name="mouth_breath_2" parent="." instance=ExtResource("6_evmrc")]
+transform = Transform3D(-0.0916072, -0.479765, 0.533129, 0.716879, -0.07777, 0.0531953, 0.0220459, 0.535323, 0.485528, 0.340836, 3.50397, 0.391382)
 
 [editable path="trunk/tentacle2"]
 [editable path="trunk/tentacle3"]

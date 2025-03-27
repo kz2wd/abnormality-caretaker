@@ -23,19 +23,33 @@ enum BREATH {
 # first played pattern is the opposite of the one put here
 var current_breath_pattern = BREATH.OUT
 
+@onready var mouth_breathers: Array[AnimationPlayer] = [
+	$mouth_breath_1/AnimationPlayer,
+	$mouth_breath_2/AnimationPlayer,
+]
+
+@onready var mouth_animator: AnimationPlayer = $mouth/AnimationPlayer
+@onready var mouth_sound: AudioStreamPlayer3D = $mouth_sound
+const MUNCHING = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/munching.wav")
+
+
 func play_breath_in() -> void:
 	current_breath_pattern = BREATH.IN
 	breath_sound_player.stream = breath_in
 	breath_sound_player.play()
 	for tentacle in tentacle_animators:
-		tentacle.play("idle_in")
+		tentacle.play("idle_out")  # I prefer it inverted
+	for breather in mouth_breathers:
+		breather.play("mouth_idle_in")
 	
 func play_breath_out() -> void:
 	current_breath_pattern = BREATH.OUT
 	breath_sound_player.stream = breath_out
 	breath_sound_player.play()
 	for tentacle in tentacle_animators:
-		tentacle.play("idle_out")
+		tentacle.play("idle_in")  # I prefer it inverted
+	for breather in mouth_breathers:
+		breather.play("mouth_idle_out")
 
 func handle_breath() -> void:
 	# If no breathing is occuring (based on sound player), then trigger the next one
@@ -44,10 +58,6 @@ func handle_breath() -> void:
 			play_breath_out()
 		else:
 			play_breath_in()
-		
-
-var animations = [idle, panic, die]
-var current_animation_index = 0
 
 func handle_heart() -> void:
 	if !heart_beat.is_playing():
@@ -57,9 +67,19 @@ func handle_heart() -> void:
 		heart_beat.play(0.9)  # File is 2 secs long, could find how to cut it in half simply so ...
 		heart_animator.play("heart_idle")
 
-func _process(delta: float) -> void:
+
+func handle_mouth() -> void:
+	if !mouth_animator.is_playing() and !mouth_sound.is_playing():
+		mouth_animator.play("mouth_idle")
+	if Input.is_action_just_pressed("test_circle_animations"):
+		mouth_animator.play("mouth_chewing", 1, 0.8)
+		mouth_sound.stream = MUNCHING
+		mouth_sound.play(0.4)
+
+func _process(_delta: float) -> void:
 	handle_breath()
 	handle_heart()
+	handle_mouth()
 	
 func idle() -> void:
 	heart_animator.play("heart_idle")
