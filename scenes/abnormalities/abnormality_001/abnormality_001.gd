@@ -77,7 +77,7 @@ func handle_mouth() -> void:
 func play_eating_animation() -> void:
 	mouth_animator.play("mouth_chewing", 1, 0.8)
 	mouth_sound.stream = MUNCHING
-	mouth_sound.play(0.4)
+	mouth_sound.play(0.1)
 		
 
 func _process(_delta: float) -> void:
@@ -111,11 +111,16 @@ func feed(player: Player, item: Item) -> void:
 	if item == null:
 		player.bite()
 		
+		
 	match get_food_type(item):
 		Global.FOOD_TYPE.FLESH:
 			pass
 
-	remove_child(item)
-	item.queue_free()
+	if item != null:
+		remove_child(item)
+		item.queue_free()
 	
 	play_eating_animation()
+
+func pet(player: Player) -> void:
+	print("Pet abno")

@@ -125,6 +125,7 @@ func try_hold(item: Item) -> bool:
 	get_parent().remove_child(item)
 	add_child(item)
 	item.position = item_spot.position
+	item.collision_layer = 4
 	
 	if "freeze" in item:
 		item.freeze = true
@@ -142,6 +143,7 @@ func try_drop_on_ground(item: Item) -> bool:
 	remove_child(item)
 	get_parent().add_child(item)
 	item.position = drop_pos
+	item.collision_layer = 3
 	print("Droppin item")
 	return true
 	
