@@ -59,11 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340125, 0)
 [node name="mouth" parent="." instance=ExtResource("6_evmrc")]
 transform = Transform3D(-0.566011, -0.824393, 0.00271674, -0.824383, 0.566018, 0.00395687, -0.00479974, 0, -0.999988, -0.639927, 0.364267, 0.0425713)
 
-[node name="Area3D" type="Area3D" parent="mouth"]
+[node name="StaticBody3D" type="StaticBody3D" parent="mouth"]
 script = ExtResource("7_62fea")
 
-[node name="mouth_interactible" type="CollisionShape3D" parent="mouth/Area3D"]
-transform = Transform3D(1, 0, 2.32831e-09, -2.97923e-08, 1, -2.30926e-14, -1.86265e-09, 0, 1, 5.96046e-08, 0.270131, 0)
+[node name="mouth_interactible" type="CollisionShape3D" parent="mouth/StaticBody3D"]
+transform = Transform3D(1, 0, 2.32831e-09, -2.97923e-08, 1, -2.32854e-10, -1.39698e-09, 0, 1, 5.96046e-08, 0.270131, 0)
 shape = SubResource("BoxShape3D_2gus6")
 
 [node name="mouth_sound" type="AudioStreamPlayer3D" parent="."]

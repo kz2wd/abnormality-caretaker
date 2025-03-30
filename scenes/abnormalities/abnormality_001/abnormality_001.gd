@@ -1,4 +1,5 @@
 extends Node3D
+class_name Abnormality001
 
 @onready var heart_animator: AnimationPlayer = $heart2/AnimationPlayer
 
@@ -94,3 +95,8 @@ func panic() -> void:
 	for tentacle in tentacle_animators:
 		tentacle.play("happy")
 	
+func feed(player: Player, item: Item) -> void:
+	print("Fed it")
+	if player != null and item == null:
+		player.bite()
+	pass
