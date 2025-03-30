@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b52phr7luwacr"
+uid="uid://djvch3adxq4o2"
 path.s3tc="res://.godot/imported/heart_heart.png-6de785e8697d6b799ad0c77390c3d89a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "ca8945fb34e1e35ec97988d62056eaec"
 }
 
 [deps]

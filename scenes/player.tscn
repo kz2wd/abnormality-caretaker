@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ongug3o51pu0"]
 
-[ext_resource type="Script" uid="uid://cf7ifei14cdn1" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_3vyb7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wfyh"]
 
@@ -10,6 +10,7 @@
 albedo_color = Color(0.872825, 0.312307, 0.476639, 1)
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,9 +23,31 @@ mesh = SubResource("CapsuleMesh_sugp2")
 material = SubResource("StandardMaterial3D_jyhfs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -0.430512)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
-light_color = Color(0.321858, 0.249084, 0.293318, 1)
+light_color = Color(0.609564, 0.594667, 0.700346, 1)
 spot_range = 15.0
 spot_angle = 30.0
+
+[node name="IteractableDetector" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 7
+collide_with_areas = true
+
+[node name="DebugRaycastTip" type="CSGBox3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.94951)
+visible = false
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="InteractorLabel" type="Label" parent="Camera3D"]
+offset_left = 176.0
+offset_top = 440.0
+offset_right = 355.0
+offset_bottom = 481.0
+text = "Press E to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemSpot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812939, -1.02432)

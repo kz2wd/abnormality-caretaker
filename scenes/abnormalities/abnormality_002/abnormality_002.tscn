@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://epqkamnl6u4x"]
 
-[ext_resource type="Script" uid="uid://dxbur26lho776" path="res://scenes/abnormalities/abnormality_002/abnormality_002.gd" id="1_kuvle"]
+[ext_resource type="Script" path="res://scenes/abnormalities/abnormality_002/abnormality_002.gd" id="1_kuvle"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exgmf"]
 albedo_color = Color(0.55007, 0.515747, 0.423746, 1)
@@ -9,6 +9,7 @@ albedo_color = Color(0.55007, 0.515747, 0.423746, 1)
 size = Vector3(0.3, 0.3, 0.3)
 
 [node name="abnormality_002" type="RigidBody3D"]
+collision_layer = 4
 mass = 0.1
 script = ExtResource("1_kuvle")
 

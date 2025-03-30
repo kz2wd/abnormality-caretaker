@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 const mouse_sensitivity = 0.2
 
@@ -35,6 +36,37 @@ func handle_jump(delta: float) -> void:
 		velocity.y = jump_velocity
 ################################# JUMP RELATED CODE #############
 
+
+@onready var iteractable_detector: RayCast3D = $Camera3D/IteractableDetector
+@onready var interactor_label: Label = $Camera3D/InteractorLabel
+
+func handle_interaction():
+	
+	var collider = iteractable_detector.get_collider()
+	
+	if !collider is Interactible:
+		interactor_label.visible = false
+		return
+		
+	if !collider is Item:
+		# interact with interactible first	
+		
+		interactor_label.visible = true
+		interactor_label.text = collider.get_message()
+		if Input.is_action_just_pressed("interact"):
+			collider.interact(self)
+		
+	elif is_holding_something():
+		interactor_label.text = "..."
+		return
+	else:
+		# lastly, interact with item
+		interactor_label.visible = true
+		interactor_label.text = collider.get_message()
+		if Input.is_action_just_pressed("interact"):
+			collider.interact(self)
+		
+		
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -65,3 +97,63 @@ func _physics_process(delta: float) -> void:
 	handle_jump(delta)
 		
 	move_and_slide()
+	
+	handle_interaction()
+
+
+##### Items related #####
+
+@onready var item_spot: Node3D = $ItemSpot
+
+var current_item: Item
+
+func remove_current_item() -> Item:
+	var removed = current_item
+	current_item = null
+	return removed
+	
+func is_holding_something() -> bool:
+	return current_item != null
+
+func try_hold(item: Item) -> bool:
+	if is_holding_something():
+		return false
+	item.is_held = true
+	current_item = item
+	print("picking up item")
+	# add code to make item child of player and visually well placed
+	get_parent().remove_child(item)
+	add_child(item)
+	item.position = item_spot.position
+	
+	if "freeze" in item:
+		item.freeze = true
+	
+	return true
+	
+func try_drop_on_ground(item: Item) -> bool:
+	if !is_holding_something():
+		return false
+	remove_current_item()
+	item.is_held = false
+	if "freeze" in item:
+		item.freeze = false
+	var drop_pos = to_global(item.position) 
+	remove_child(item)
+	get_parent().add_child(item)
+	item.position = drop_pos
+	print("Droppin item")
+	return true
+	
+##### Items related #####
+
+
+####### Life related  #######
+
+
+func bite() -> void:
+	pass
+
+
+
+####### Life related  #######

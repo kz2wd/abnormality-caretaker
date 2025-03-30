@@ -21,13 +21,13 @@ script = ExtResource("1_dp0m4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340603, 0)
 
 [node name="tentacle2" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(-0.139553, 1.22002e-08, 0.905431, -8.009e-08, -0.916122, 0, 0.905431, -7.91552e-08, 0.139553, 0.225798, 6.68873, -1.9654)
+transform = Transform3D(-0.15233, 1.33172e-08, 0.98833, -8.74228e-08, -1, 0, 0.98833, -8.64025e-08, 0.15233, 0.225798, 6.68873, -1.9654)
 
 [node name="tentacle3" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(-0.761346, 7.21315e-08, -0.648346, -8.74228e-08, -1.08372, 0, -0.648346, 6.14256e-08, 0.761346, 1.90517, 6.3752, 1.08418)
+transform = Transform3D(-0.761346, 6.6559e-08, -0.648346, -8.74228e-08, -1, 0, -0.648346, 5.66802e-08, 0.761346, 1.90517, 6.3752, 1.08418)
 
 [node name="tentacle4" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(0.82236, -7.1893e-08, -0.723504, -9.57562e-08, -1.09532, 8.00859e-15, -0.723504, 6.32506e-08, -0.82236, -1.72171, 6.75073, 1.87241)
+transform = Transform3D(0.750792, -6.56363e-08, -0.660539, -8.74228e-08, -1, 7.31162e-15, -0.660539, 5.77461e-08, -0.750792, -1.72171, 6.75073, 1.87241)
 
 [node name="breather" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.38431, 0)
@@ -59,12 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340125, 0)
 [node name="mouth" parent="." instance=ExtResource("6_evmrc")]
 transform = Transform3D(-0.566011, -0.824393, 0.00271674, -0.824383, 0.566018, 0.00395687, -0.00479974, 0, -0.999988, -0.639927, 0.364267, 0.0425713)
 
-[node name="Area3D" type="Area3D" parent="mouth"]
-transform = Transform3D(1, 0, 4.65661e-10, 1.00577e-11, 1, -2.30926e-14, -4.65661e-10, 0, 1, -0.00467632, -0.00661248, -0.0286167)
+[node name="StaticBody3D" type="StaticBody3D" parent="mouth"]
 script = ExtResource("7_62fea")
 
-[node name="mouth_interactible" type="CollisionShape3D" parent="mouth/Area3D"]
-transform = Transform3D(1, 0, 2.32831e-09, -2.97923e-08, 1, -2.30926e-14, -1.86265e-09, 0, 1, 5.96046e-08, 0.270131, 0)
+[node name="mouth_interactible" type="CollisionShape3D" parent="mouth/StaticBody3D"]
+transform = Transform3D(1, 0, 2.32831e-09, -2.97923e-08, 1, -2.32854e-10, -1.39698e-09, 0, 1, 5.96046e-08, 0.270131, 0)
 shape = SubResource("BoxShape3D_2gus6")
 
 [node name="mouth_sound" type="AudioStreamPlayer3D" parent="."]

@@ -1,4 +1,5 @@
 extends Node3D
+class_name Abnormality001
 
 @onready var heart_animator: AnimationPlayer = $heart2/AnimationPlayer
 
@@ -71,10 +72,13 @@ func handle_heart() -> void:
 func handle_mouth() -> void:
 	if !mouth_animator.is_playing() and !mouth_sound.is_playing():
 		mouth_animator.play("mouth_idle")
-	if Input.is_action_just_pressed("test_circle_animations"):
-		mouth_animator.play("mouth_chewing", 1, 0.8)
-		mouth_sound.stream = MUNCHING
-		mouth_sound.play(0.4)
+
+
+func play_eating_animation() -> void:
+	mouth_animator.play("mouth_chewing", 1, 0.8)
+	mouth_sound.stream = MUNCHING
+	mouth_sound.play(0.4)
+		
 
 func _process(_delta: float) -> void:
 	handle_breath()
@@ -93,4 +97,25 @@ func panic() -> void:
 	heart_animator.play("heart_stressed")
 	for tentacle in tentacle_animators:
 		tentacle.play("happy")
+
+
+func get_food_type(item: Item) -> Global.FOOD_TYPE:
+	if item == null:
+		return Global.FOOD_TYPE.FLESH
+	return item.food_type
+
+func feed(player: Player, item: Item) -> void:
+	print("Fed it")
+	if player == null:
+		return
+	if item == null:
+		player.bite()
+		
+	match get_food_type(item):
+		Global.FOOD_TYPE.FLESH:
+			pass
+
+	remove_child(item)
+	item.queue_free()
 	
+	play_eating_animation()
