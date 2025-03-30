@@ -17,13 +17,13 @@ script = ExtResource("1_dp0m4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.340603, 0)
 
 [node name="tentacle2" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(-0.15233, 1.33172e-08, 0.98833, -8.74228e-08, -1, 0, 0.98833, -8.64025e-08, 0.15233, 0.225798, 6.68873, -1.9654)
+transform = Transform3D(-0.139553, 1.22002e-08, 0.905431, -8.009e-08, -0.916122, 0, 0.905431, -7.91552e-08, 0.139553, 0.225798, 6.68873, -1.9654)
 
 [node name="tentacle3" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(-0.761346, 6.6559e-08, -0.648346, -8.74228e-08, -1, 0, -0.648346, 5.66802e-08, 0.761346, 1.90517, 6.3752, 1.08418)
+transform = Transform3D(-0.761346, 7.21315e-08, -0.648346, -8.74228e-08, -1.08372, 0, -0.648346, 6.14256e-08, 0.761346, 1.90517, 6.3752, 1.08418)
 
 [node name="tentacle4" parent="trunk" instance=ExtResource("3_evmrc")]
-transform = Transform3D(0.750792, -6.56363e-08, -0.660539, -8.74228e-08, -1, 7.31162e-15, -0.660539, 5.77461e-08, -0.750792, -1.72171, 6.75073, 1.87241)
+transform = Transform3D(0.82236, -7.1893e-08, -0.723504, -9.57562e-08, -1.09532, 8.00859e-15, -0.723504, 6.32506e-08, -0.82236, -1.72171, 6.75073, 1.87241)
 
 [node name="breather" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.38431, 0)
