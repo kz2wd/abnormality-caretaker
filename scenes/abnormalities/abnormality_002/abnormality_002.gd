@@ -1,4 +1,5 @@
-extends Node3D
+extends Item
+class_name Abnormality002
 
 const MB_1 = preload("res://scenes/abnormalities/abnormality_002/assets/sounds/mb1.wav")
 const MB_2 = preload("res://scenes/abnormalities/abnormality_002/assets/sounds/mb2.wav")

@@ -9,4 +9,4 @@ func interact(player: Player) -> void:
 	abnormality_001.feed(player, item)
 
 func get_message() -> String:
-	return "Press " + Utils.get_key_of_action("interact") + " to feed me"
+	return "(" + Utils.get_key_of_action("interact") + ") feed me"
