@@ -46,9 +46,9 @@ func handle_interaction():
 	
 	if !collider is Interactible:
 		interactor_label.visible = false
-		return
 		
-	if !collider is Item:
+		
+	if !collider is Item and collider is Interactible:
 		# interact with interactible first	
 		
 		interactor_label.visible = true
@@ -57,9 +57,13 @@ func handle_interaction():
 			collider.interact(self)
 		
 	elif is_holding_something():
-		interactor_label.text = "..."
+		if collider is Interactible:
+			interactor_label.visible = true
+			interactor_label.text = "..."
+		if Input.is_action_just_pressed("interact"):
+			current_item.interact(self)
 		return
-	else:
+	elif collider is Interactible:
 		# lastly, interact with item
 		interactor_label.visible = true
 		interactor_label.text = collider.get_message()
@@ -125,6 +129,7 @@ func try_hold(item: Item) -> bool:
 	get_parent().remove_child(item)
 	add_child(item)
 	item.position = item_spot.position
+	item.rotation = item_spot.rotation
 	item.collision_layer = 4
 	
 	if "freeze" in item:

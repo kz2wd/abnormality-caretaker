@@ -1,6 +1,7 @@
 extends Node3D
 class_name Abnormality001
 
+
 @onready var heart_animator: AnimationPlayer = $heart2/AnimationPlayer
 
 @onready var tentacle_animators: Array[AnimationPlayer] = [
@@ -25,12 +26,12 @@ enum BREATH {
 var current_breath_pattern = BREATH.OUT
 
 @onready var mouth_breathers: Array[AnimationPlayer] = [
-	$mouth_breath_1/AnimationPlayer,
+	$mouth_breath_1/AnimationPlayer, 
 	$mouth_breath_2/AnimationPlayer,
 ]
 
 @onready var mouth_animator: AnimationPlayer = $mouth/AnimationPlayer
-@onready var mouth_sound: AudioStreamPlayer3D = $mouth_sound
+@onready var mouth_sound: AudioStreamPlayer3D = $mouth/mouth_sound
 const MUNCHING = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/munching.wav")
 
 

@@ -19,7 +19,9 @@ material = SubResource("StandardMaterial3D_exgmf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = -6.095
-max_db = -4.143
+unit_size = 3.95
+max_db = -5.507
+max_distance = 31.03
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_thcdc")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4bw6kl7td5vb"]
+
+[ext_resource type="PackedScene" uid="uid://bugl5vn8vkdu8" path="res://scenes/abnormalities/abnormality_003/creature_body.glb" id="1_tojji"]
+[ext_resource type="PackedScene" uid="uid://coh6aflphdrdd" path="res://scenes/abnormalities/abnormality_001/assets/heart.glb" id="2_vl1h7"]
+[ext_resource type="PackedScene" uid="uid://b4yl4d7kip5jk" path="res://scenes/abnormalities/abnormality_001/assets/tentacle.glb" id="3_cx8el"]
+[ext_resource type="PackedScene" uid="uid://wsccwgqtyhxu" path="res://scenes/abnormalities/abnormality_001/assets/mouth.glb" id="4_qkioc"]
+
+[node name="Abnormality003" type="Node3D"]
+
+[node name="creature_body2" parent="." instance=ExtResource("1_tojji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24241, 0)
+
+[node name="heart2" parent="." instance=ExtResource("2_vl1h7")]
+transform = Transform3D(-4.69633, 0.923257, -0.956496, 0.897651, 4.79262, 0.218667, 0.980566, 0.0344883, -4.78122, -16.5041, -7.05155, -5.68109)
+
+[node name="Skeleton3D" parent="heart2/heart" index="0"]
+bones/0/rotation = Quaternion(-0.271737, 0.066231, -0.218862, 0.934811)
+bones/0/scale = Vector3(1.00753, 1.00753, 1.00753)
+bones/1/rotation = Quaternion(0.278459, -0.026235, 0.0813656, 0.956636)
+bones/1/scale = Vector3(1.30079, 1.30079, 1.30079)
+bones/2/rotation = Quaternion(0.100147, 0.970435, 0.218472, -0.0222902)
+bones/2/scale = Vector3(0.915917, 0.915916, 0.915916)
+bones/3/rotation = Quaternion(0.128579, -0.0341958, 0.0691587, 0.988694)
+bones/3/scale = Vector3(1.07845, 1.07845, 1.07845)
+
+[node name="tentacle2" parent="." instance=ExtResource("3_cx8el")]
+transform = Transform3D(1.15883, 4.44144, 1.65935, -0.675976, 1.84552, -4.46765, -4.69286, 0.83091, 1.05329, -20.3257, 10.1047, 14.5111)
+
+[node name="Skeleton3D" parent="tentacle2/tentacle" index="0"]
+bones/0/rotation = Quaternion(-5.47851e-07, 1.30966e-07, -0.030148, 0.999546)
+bones/1/rotation = Quaternion(9.60317e-08, -4.45766e-08, 0.0690193, 0.997615)
+bones/2/rotation = Quaternion(1.18287e-08, 3.0661e-08, 0.0313242, 0.999509)
+bones/3/rotation = Quaternion(2.89956e-08, -2.14277e-08, -0.0102677, 0.999947)
+bones/4/rotation = Quaternion(4.64067e-08, 4.31303e-08, -0.0534469, 0.998571)
+bones/5/rotation = Quaternion(6.62231e-08, 2.19312e-08, -0.0811753, 0.9967)
+bones/6/rotation = Quaternion(8.14903e-08, 2.35095e-08, -0.102503, 0.994733)
+bones/7/rotation = Quaternion(8.67185e-08, -4.14492e-09, -0.106807, 0.99428)
+bones/8/rotation = Quaternion(8.22549e-08, -3.55669e-09, -0.107757, 0.994177)
+bones/9/rotation = Quaternion(6.47147e-08, -5.47671e-08, -0.0916218, 0.995794)
+bones/10/rotation = Quaternion(4.60532e-08, -5.15984e-08, -0.120805, 0.992676)
+bones/11/rotation = Quaternion(2.48561e-08, 4.39404e-08, -0.0416022, 0.999134)
+
+[node name="mouth" parent="." instance=ExtResource("4_qkioc")]
+transform = Transform3D(-1.76591e-07, 4.03994, 0, -4.03994, -1.76591e-07, 0, 0, 0, 4.03994, 7.11457, 1.57802, 1.25186)
+
+[editable path="creature_body2"]
+[editable path="heart2"]
+[editable path="tentacle2"]
