@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crlnjmfa3hx5n"
-path.s3tc="res://.godot/imported/dancer_marble.png-cde68c48a252c19a7dc8ccb9a305a967.s3tc.ctex"
+uid="uid://b6uinbnq6npxe"
+path.s3tc="res://.godot/imported/base_pinkfluffy_n.png-e602ad45981c6982c09bca561ba23cb7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ed609757fa2c12eb2b6640c1d9718084"
+"md5": "d236a64fb94f9cd55cd3cb81ce10c102"
 }
 
 [deps]
 
-source_file="res://scenes/abnormalities/abnormality_002/assets/dancer_marble.png"
-dest_files=["res://.godot/imported/dancer_marble.png-cde68c48a252c19a7dc8ccb9a305a967.s3tc.ctex"]
+source_file="res://scenes/abnormalities/abnormality_002/music_box_parts/base_pinkfluffy_n.png"
+dest_files=["res://.godot/imported/base_pinkfluffy_n.png-e602ad45981c6982c09bca561ba23cb7.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://scenes/abnormalities/abnormality_002/music_box_parts/base_pinkfluffy_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

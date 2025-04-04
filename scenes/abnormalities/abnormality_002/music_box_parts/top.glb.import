@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7qua13m2d26k"
-path="res://.godot/imported/dancer.glb-224343c3323c930e2dce249584bfcaf6.scn"
+uid="uid://b1ex3ia4g7nco"
+path="res://.godot/imported/top.glb-ce43ded43c55cce865c5070f16761f7b.scn"
 
 [deps]
 
-source_file="res://scenes/abnormalities/abnormality_002/assets/dancer.glb"
-dest_files=["res://.godot/imported/dancer.glb-224343c3323c930e2dce249584bfcaf6.scn"]
+source_file="res://scenes/abnormalities/abnormality_002/music_box_parts/top.glb"
+dest_files=["res://.godot/imported/top.glb-ce43ded43c55cce865c5070f16761f7b.scn"]
 
 [params]
 

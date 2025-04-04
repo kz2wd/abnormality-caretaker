@@ -14,6 +14,10 @@ size = Vector3(0.3, 0.3, 0.3)
 collision_layer = 4
 mass = 0.1
 script = ExtResource("1_kuvle")
+platform_rotation_speed = null
+key_rotation_speed = null
+open_lid_angle = null
+opening_speed = null
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 volume_db = -6.095

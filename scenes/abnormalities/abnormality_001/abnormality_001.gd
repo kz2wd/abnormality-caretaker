@@ -8,6 +8,9 @@ class_name Abnormality001
 	$trunk/tentacle2/AnimationPlayer,
 	$trunk/tentacle3/AnimationPlayer,
 	$trunk/tentacle4/AnimationPlayer,
+	$trunk/tentacle5/AnimationPlayer,
+	$trunk/tentacle6/AnimationPlayer,
+	$trunk/tentacle7/AnimationPlayer,
 ]
 
 const breath_in: Resource = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/br1_in.wav")
@@ -118,8 +121,7 @@ func feed(player: Player, item: Item) -> void:
 			pass
 
 	if item != null:
-		remove_child(item)
-		item.queue_free()
+		item.delete()
 	
 	play_eating_animation()
 

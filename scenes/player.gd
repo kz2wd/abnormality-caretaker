@@ -111,6 +111,9 @@ func _physics_process(delta: float) -> void:
 
 var current_item: Item
 
+func destroy_current_item():
+	pass
+
 func remove_current_item() -> Item:
 	var removed = current_item
 	current_item = null
@@ -124,12 +127,11 @@ func try_hold(item: Item) -> bool:
 		return false
 	item.is_held = true
 	current_item = item
-	print("picking up item")
 	# add code to make item child of player and visually well placed
 	get_parent().remove_child(item)
 	add_child(item)
 	item.position = item_spot.position
-	item.rotation = item_spot.rotation
+	item.rotation = item.in_hand_rotation
 	item.collision_layer = 4
 	
 	if "freeze" in item:
@@ -149,7 +151,6 @@ func try_drop_on_ground(item: Item) -> bool:
 	get_parent().add_child(item)
 	item.position = drop_pos
 	item.collision_layer = 3
-	print("Droppin item")
 	return true
 	
 ##### Items related #####

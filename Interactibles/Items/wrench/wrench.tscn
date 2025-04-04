@@ -16,3 +16,5 @@ shape = SubResource("BoxShape3D_xvqaa")
 
 [node name="wrench2" parent="." instance=ExtResource("2_w40dj")]
 transform = Transform3D(2.13079, 0, 0, 0, 2.12967, -0.0688997, 0, 0.0688997, 2.12967, 0.0594819, 0.0214482, 0.00737748)
+
+[editable path="wrench2"]

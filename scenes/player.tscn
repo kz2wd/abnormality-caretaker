@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ongug3o51pu0"]
+[gd_scene load_steps=7 format=3 uid="uid://ongug3o51pu0"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_3vyb7"]
 
@@ -11,6 +11,9 @@ albedo_color = Color(0.872825, 0.312307, 0.476639, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2iy0a"]
 font_color = Color(0.702179, 0.729805, 0.655519, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_77fl6"]
+font_color = Color(0.244898, 0.260714, 0.146351, 1)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -35,7 +38,7 @@ spot_range = 19.436
 spot_angle = 35.93
 
 [node name="IteractableDetector" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -2.5)
 collision_mask = 7
 collide_with_areas = true
 
@@ -52,11 +55,29 @@ offset_left = 195.0
 offset_top = 388.0
 offset_right = -179.0
 offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "placeholder"
 label_settings = SubResource("LabelSettings_2iy0a")
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162
 
+[node name="dot" type="Label" parent="Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 11.0
+offset_right = -18.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "."
+label_settings = SubResource("LabelSettings_77fl6")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
 [node name="ItemSpot" type="Node3D" parent="."]
-transform = Transform3D(-0.667119, -0.360698, 0.651805, 0.351916, 0.618586, 0.7025, -0.656588, 0.698032, -0.285735, 0.259521, 1.02348, -0.86157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259521, 1.02348, -0.977748)

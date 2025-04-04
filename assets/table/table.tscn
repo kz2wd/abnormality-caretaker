@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://pu5a3fwykucg"]
+
+[ext_resource type="Texture2D" uid="uid://fjigeq3k87pn" path="res://Interactibles/Items/wrench/wrench_hardsh_black.png" id="1_2f0o1"]
+[ext_resource type="Texture2D" uid="uid://mr444nfm4rl6" path="res://Interactibles/Items/wrench/wrench_hardsh_black_n.png" id="2_ekbk1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbc5h"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_2f0o1")
+metallic = 0.504545
+normal_enabled = true
+normal_texture = ExtResource("2_ekbk1")
+
+[node name="table" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+material = SubResource("StandardMaterial3D_jbc5h")
