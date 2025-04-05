@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ongug3o51pu0"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_3vyb7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wfyh"]
 
@@ -81,3 +81,8 @@ justification_flags = 162
 
 [node name="ItemSpot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259521, 1.02348, -0.977748)
+
+[node name="FootSteps" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0478683, -0.460914)
+volume_db = -29.757
+max_db = -5.571

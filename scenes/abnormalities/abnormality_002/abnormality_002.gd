@@ -5,6 +5,11 @@ const MB_1 = preload("res://scenes/abnormalities/abnormality_002/assets/sounds/m
 const MB_2 = preload("res://scenes/abnormalities/abnormality_002/assets/sounds/mb2.wav")
 @onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
+@export var abno4: Abnormality004
+
+func _ready() -> void:
+	in_hand_rotation = Vector3(0, - PI / 2, 0)
+	
 
 var play_amount = 0
 var is_on = false
@@ -12,12 +17,15 @@ func _process(delta: float) -> void:
 	handle_play_music()
 	handle_roll(delta)
 	handle_open(delta)
+	super._process(delta)
 
 var has_been_picked = false
 func interact(player: Player) -> void:
 	if !has_been_picked:
 		has_been_picked = true
 		is_on = true
+		if abno4 != null:
+			abno4.alert()
 	super.interact(player)
 
 

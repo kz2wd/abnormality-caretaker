@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://ci0poax4mjwht"]
+[gd_scene load_steps=15 format=3 uid="uid://ci0poax4mjwht"]
 
 [ext_resource type="PackedScene" uid="uid://bbgylck0418rp" path="res://scenes/abnormalities/abnormality_001/abnormality_001.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://ongug3o51pu0" path="res://scenes/player.tscn" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://ongug3o51pu0" path="res://scenes/player/player.tscn" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://cdn2f4bxxue00" path="res://scenes/abnormalities/abnormality_001/assets/trunk_black_t1.png" id="2_q27qv"]
 [ext_resource type="PackedScene" uid="uid://epqkamnl6u4x" path="res://scenes/abnormalities/abnormality_002/abnormality_002.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://3kpkbsd3k4p3" path="res://Interactibles/Items/wrench/wrench.tscn" id="5_ew3p0"]
 [ext_resource type="PackedScene" uid="uid://8277xdm1stur" path="res://scenes/abnormalities/abnormality_004/abnormality_004.tscn" id="6_5urwc"]
 [ext_resource type="PackedScene" uid="uid://cy5hnnjimsf2l" path="res://Interactibles/Items/MouthOpener/MouthOpener1.tscn" id="6_oc21d"]
+[ext_resource type="PackedScene" uid="uid://c4bw6kl7td5vb" path="res://scenes/abnormalities/abnormality_003/abnormality_003.tscn" id="8_tpfgu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o6xl0"]
 
@@ -39,7 +40,7 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 environment = SubResource("Environment_85g3d")
 
 [node name="Player" parent="." instance=ExtResource("2_o6xl0")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.35378, 0, 9.80403)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.2931, 0, -5.59104)
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98654, 0, -3.98923)
@@ -70,7 +71,6 @@ material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Ground/CSGBox3D10"]
 transform = Transform3D(-1.84551e-07, 1.00162, 0, -4.22204, -4.37823e-08, 0, 0, 0, 3.04942, -0.153878, -6.8209, -7.10226)
-operation = 2
 height = 1.59492
 material = SubResource("StandardMaterial3D_evmrc")
 
@@ -135,9 +135,33 @@ size = Vector3(1, 5, 27)
 material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.5, 29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, 29)
 use_collision = true
-size = Vector3(26, 5, 1)
+size = Vector3(21, 5, 1)
+material = SubResource("StandardMaterial3D_evmrc")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 35)
+use_collision = true
+size = Vector3(21, 5, 1)
+material = SubResource("StandardMaterial3D_evmrc")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 2.5, 38)
+use_collision = true
+size = Vector3(17, 5, 1)
+material = SubResource("StandardMaterial3D_evmrc")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 2.5, 38)
+use_collision = true
+size = Vector3(17, 5, 1)
+material = SubResource("StandardMaterial3D_evmrc")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 46)
+use_collision = true
+size = Vector3(30, 5, 1)
 material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Ground"]
@@ -171,15 +195,9 @@ size = Vector3(11.7265, 8, 1)
 material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 2.5, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.5, 7)
 use_collision = true
-size = Vector3(11, 5, 1)
-material = SubResource("StandardMaterial3D_evmrc")
-
-[node name="CSGBox3D25" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 7)
-use_collision = true
-size = Vector3(11, 5, 1)
+size = Vector3(26, 5, 1)
 material = SubResource("StandardMaterial3D_evmrc")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Ground"]
@@ -217,14 +235,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9605, 0.216424, -5.07171)
 [node name="Wrench2" parent="." instance=ExtResource("5_ew3p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9605, 0.216424, 12.9184)
 
-[node name="MouthOpener1" parent="." instance=ExtResource("6_oc21d")]
+[node name="MouthOpener1" parent="." node_paths=PackedStringArray("door") instance=ExtResource("6_oc21d")]
 transform = Transform3D(0.588364, -0.808596, 0, 0.808596, 0.588364, 0, 0, 0, 1, 12.2722, 0.616377, 8.78485)
+door = NodePath("../Ground/CSGBox3D10/CSGCylinder3D")
 
-[node name="Wrench3" parent="." instance=ExtResource("5_ew3p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0332, 0.430762, 9.05522)
+[node name="OmniLight3D" type="OmniLight3D" parent="MouthOpener1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204258, 1.38007, 0)
+light_color = Color(0.595266, 0.244476, 0.3148, 1)
+omni_range = 1.83786
 
-[node name="Wrench4" parent="." instance=ExtResource("5_ew3p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0332, 0.430762, 9.5312)
+[node name="abnormality_002" parent="." node_paths=PackedStringArray("abno4") instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9027, 0.401459, 36.79)
+abno4 = NodePath("../abnormality_004")
 
-[node name="abnormality_002" parent="." instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09727, 0.666015, 3.79003)
+[node name="Abnormality003" parent="." instance=ExtResource("8_tpfgu")]
+transform = Transform3D(0.0269621, 0, -0.999636, 0, 1, 0, 0.999636, 0, 0.0269621, 30.3476, -0.0412674, -33.2399)
+
+[node name="abnormality_003" parent="." instance=ExtResource("3_sugp2")]
+transform = Transform3D(-0.0292999, 0, -0.999571, 0, 1, 0, 0.999571, 0, -0.0292999, 28.648, 0.283127, -12.853)

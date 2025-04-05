@@ -7,6 +7,7 @@ class_name MouthOpener
 @onready var mouth_sound: AudioStreamPlayer3D = $mouth/mouth_sound
 const MUNCHING = preload("res://scenes/abnormalities/abnormality_001/assets/sounds/munching.wav")
 
+@export var door: CSGPrimitive3D
 
 enum {UNSTARTED, ATE_A_WRENCH, ATE_MUSIC_BOX}
 var state = UNSTARTED
@@ -69,9 +70,10 @@ func interact(player: Player) -> void:
 				change_phase(ATE_MUSIC_BOX)
 		ATE_MUSIC_BOX:
 			increase_dialog()
-			if dialog_index >= 3:
-				pass
-				# break door
+			if dialog_index >= 2:
+				print("OPENING DOOR :D")
+				if door != null:
+					door.operation = CSGShape3D.OPERATION_SUBTRACTION
 	
 	
 

@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="abnormality-caretaker"
-run/main_scene="res://scenes/main.tscn"
+config/name="abnormalities-Proto1"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.109641, 0.0415422, 0.0500217, 1)
+boot_splash/show_image=false
 
 [autoload]
 

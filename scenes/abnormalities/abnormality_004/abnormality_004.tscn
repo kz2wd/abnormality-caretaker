@@ -1,17 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://8277xdm1stur"]
+[gd_scene load_steps=4 format=3 uid="uid://8277xdm1stur"]
 
 [ext_resource type="PackedScene" uid="uid://ciam1n7hj7emy" path="res://scenes/abnormalities/abnormality_004/walking_cubes.glb" id="1_lfd1p"]
 [ext_resource type="Script" path="res://scenes/abnormalities/abnormality_004/abnormality_004.gd" id="1_w8jix"]
 
-[node name="abnormality_004" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg36y"]
+size = Vector3(1.875, 11.4477, 4.74805)
+
+[node name="abnormality_004" type="RigidBody3D"]
 script = ExtResource("1_w8jix")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -3.878
+max_db = -2.357
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.318338, 0, 0, 0, 0.318338, 0, 0, 0, 0.318338, -0.114501, 1.85303, 0.0143898)
+shape = SubResource("BoxShape3D_lg36y")
 
 [node name="walking_cubes" parent="." instance=ExtResource("1_lfd1p")]
 transform = Transform3D(0.318338, 0, 0, 0, 0.318338, 0, 0, 0, 0.318338, -0.114501, -1.19209e-07, 0.0143898)
 
 [node name="Skeleton3D" parent="walking_cubes/cubes_body" index="0"]
+bones/1/position = Vector3(-1.19031e-15, 1.31967, -1.60491)
 bones/1/rotation = Quaternion(0.999987, -6.09744e-10, 1.19208e-07, -0.0051149)
 bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(2.38586e-15, 1.37248, 1.73194)
 bones/2/rotation = Quaternion(0.999955, -1.13389e-09, 1.19204e-07, -0.00951177)
 
 [editable path="walking_cubes"]

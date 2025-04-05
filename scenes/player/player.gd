@@ -7,7 +7,7 @@ const mouse_sensitivity = 0.2
 
 var acceleration = 8.0
 var direction = Vector3.ZERO
-var current_speed := 5.0
+var current_speed := 6.0
 const lerp_speed = 7.5
 
 ################################# JUMP RELATED CODE #############
@@ -103,6 +103,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	handle_interaction()
+	handle_foot_steps(velocity)
 
 
 ##### Items related #####
@@ -130,8 +131,10 @@ func try_hold(item: Item) -> bool:
 	# add code to make item child of player and visually well placed
 	get_parent().remove_child(item)
 	add_child(item)
-	item.position = item_spot.position
-	item.rotation = item.in_hand_rotation
+	
+	item.target_position = item_spot.position
+	item.target_rotation = item.in_hand_rotation
+	item.go_to_target = true
 	item.collision_layer = 4
 	
 	if "freeze" in item:
@@ -150,13 +153,29 @@ func try_drop_on_ground(item: Item) -> bool:
 	remove_child(item)
 	get_parent().add_child(item)
 	item.position = drop_pos
+	item.go_to_target = false
 	item.collision_layer = 3
 	return true
 	
 ##### Items related #####
 
+### Handle sounds ###
+@onready var foot_steps: AudioStreamPlayer3D = $FootSteps
+const WALK = preload("res://scenes/player/walk.wav")
+const min_movement_epsilon = 0.1
+func handle_foot_steps(movement) -> void:
+	if movement.length() <= min_movement_epsilon or !is_on_floor():
+		foot_steps.stop()
+		return
+	if foot_steps.is_playing():
+		return
+	foot_steps.stream = WALK
+	foot_steps.play()
+	
+
 
 ####### Life related  #######
+
 
 
 func bite() -> void:
